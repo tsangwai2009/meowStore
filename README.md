@@ -53,11 +53,15 @@ Here list the major software & frameworks that this project using:
  [Hibernate](https://www.tutorialspoint.com/hibernate/hibernate_overview.htm)
 
 Spring Boot is the foundation of this sample project, you could read the below tutorials: 
+
 https://en.wikipedia.org/wiki/Spring_Framework#Spring_Boot 
+
 http://projects.spring.io/spring-boot/
 
 The user interface is built by using AngularJS with RESTful services:
+
 http://www.w3schools.com/angular/
+
 http://www.tutorialspoint.com/angularjs/
 
 <!-- System Feature -->
