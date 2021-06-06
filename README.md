@@ -100,7 +100,7 @@ To connect your prepared data structure to the Java world, you have to configure
 ![Program Flow](https://i.imgur.com/9btGCcf.png)
 
 DAO layer, which refers to Data Access Layer, consists of source code closely related to the database. For example, all the CRUD (i.e. Create, Read, Update and Delete) instructions to the database are specified in the DAO layer. ORM generates SQLs based on the setup of Java Beans/Entity (i.e. beans), and CRUD instructions
-are converted from the definition of beans, which are usually specified by some class files and annotations.
+are converted from the definition of beans, which are usually specified by some class files and annotations. (See more: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
 
 The Service Layer contains source code related to the business logic, such as transaction and querying data depending on the state of users. 
 
