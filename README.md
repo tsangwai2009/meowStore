@@ -88,7 +88,7 @@ To get a demo code and run in localhost with follow these simple steps:
    
    
 <!-- CONTRIBUTING -->
-## Contributing
+## Contribution
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
