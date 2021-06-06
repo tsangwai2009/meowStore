@@ -68,6 +68,7 @@ http://www.tutorialspoint.com/angularjs/
 ## System Features
 
 ![System Features](https://i.imgur.com/XBVc69D.png)
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -90,7 +91,21 @@ To get a demo code and run in localhost with follow these simple steps:
 
 6. Open the website with `http://localhost:12345/main#/home`
    
-   
+
+<!-- Program Flow -->
+## Program Flow
+
+To connect your prepared data structure to the Java world, you have to configure a data source by create beans and DAO objects.
+
+![Program Flow](https://i.imgur.com/9btGCcf.png)
+
+DAO layer, which refers to Data Access Layer, consists of source code closely related to the database. For example, all the CRUD (i.e. Create, Read, Update and Delete) instructions to the database are specified in the DAO layer. ORM generates SQLs based on the setup of Java Beans/Entity (i.e. beans), and CRUD instructions
+are converted from the definition of beans, which are usually specified by some class files and annotations.
+
+The Service Layer contains source code related to the business logic, such as transaction and querying data depending on the state of users. 
+
+The Presentation Layer refers to user interfaces, which interacting with the business logic in the Service Layer.
+
 <!-- CONTRIBUTING -->
 ## Contribution
 
