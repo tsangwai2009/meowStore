@@ -1,0 +1,36 @@
+<div ng-controller="BuyController">
+<div class="card">
+			<div class="card-header">Pay by Cash Account</div>
+			<div class="card-body">
+				<div ng-hide="notLogined">
+						<div>
+							<h6>Book name</h6>
+							<p>{{subject}}</p>
+						</div>
+						<div>
+							<h6>Description</h6>
+							<p>{{description}}</p>
+						</div>
+						<div>
+							<h6>Book Price</h6>
+							<p>$ {{price}}</p>
+						</div>
+						<div>
+							<h6>Current Cash Account balance</h6>
+							<p>$ {{balance}}</p>
+						</div>
+						<div ng:if="balance>=price">
+							<input class="btn btn-primary" type="button" ng-click="cashbuy()" value="Buy Now">
+							
+						</div>
+						<div ng:if="price>balance&&notOwn">
+							<p>You don't have enough cash balance. Please pay with cheque. The remainer will be reflect to your cash account.</p>
+						</div>
+				</div>
+				<div ng-hide="!notLogined">
+					Please <a style="margin-left: 0px;" href="#/user/login">Login</a> first
+				</div>				
+			</div>
+			<div style="margin-left: 10px;margin-bottom: 10px;">{{buyMsg}}</div>
+</div>
+</div>

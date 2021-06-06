@@ -1,0 +1,47 @@
+<head>
+	<style>
+		th {margin: 20px;}
+	</style>
+</head>
+<div ng-controller="HomeController">
+	<h2>Book List</h2>
+	<form class="form-inline">
+        <div class="form-group">
+            <label  style="margin-right: 20px;">Search keyword</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+	<table class = "table">
+		<thead>
+			<tr>
+				<th>Book name</th>
+				<th>Description</th>
+				<th>ISBN</th>
+				<th>Author</th>
+				<th>Publisher</th>
+				<th>Price</th>
+				<th ng-hide="notLogined">Payment method</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in data|filter:search">
+				<td>{{t.subject}}</td>
+				<td>{{t.description}}</td>
+				<td>{{t.isbn}}</td>
+				<td>{{t.author.name}}</td>
+				<td>{{t.publisher.name}}</td>
+				<td>$ {{t.price}}</td>
+				
+				
+				
+				<td ng-hide="notLogined" style="display: flex; flex-direction: column;">
+					<div ng-if="t.owned=='yes'">Owned</div>
+					<a ng-if="t.owned!='yes'"style="margin-left: 0px;" ng-href="/main#/buybook/cheque/{{t.bookId}}">Pay with cheque</a>
+					<a ng-if="t.owned!='yes'" style="margin-left: 0px;" ng-href="/main#/buybook/cash/{{t.bookId}}">Pay with cash account</a>
+				</td>
+<!-- 				ng-if="" -->
+				
+				
+		</tbody>
+	</table>
+</div>

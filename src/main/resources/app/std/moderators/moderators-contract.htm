@@ -1,0 +1,59 @@
+<head>
+	<style>
+		th {margin: 20px;}
+	</style>
+</head>
+<div ng-controller="ContractController">
+	<div ng-hide="notLogined">	
+
+<!-- cheque Status -->	
+	<div style="display: flex; flex-direction:column; justify-content: space-between;">
+	<h3>Contract List</h3>
+    </div>
+    <div><table class = "table">
+		<thead>
+			<tr>
+				<th>Contract Ref No.</th>
+				<th>Cheque Ref No.</th>
+				<th>User ID</th>
+				<th>Amount of Cheque</th>
+				<th>Book</th>
+				<th>Created Date</th>
+				<th>Updated Date</th>
+				<th>Voided Date</th>
+				<th>Contract Status</th>
+				<th>Cheque Status</th>
+				<th>Cheque Approved By</th>
+				<th>Contract Approved By</th>
+				<th>Ref No. of transaction</th>
+				<th>Operation</th> 
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in chequeData">
+				<td>{{t.contract.contractId}}</td>
+				<td>{{t.chequeId}}</td>
+				<td>{{t.userId}}</td>
+				<td>$ {{t.amount}}</td>
+				<td>{{t.contract.book.isbn}}</td>
+				<td>{{t.createdDate}}</td>
+				<td>{{t.contract.updatedDate}}</td>
+				<td>{{t.contract.voidedDate}}</td>
+				<td>{{t.contract.status}}</td>
+				<td>{{t.status}}</td>
+				<td>{{t.moderatorName}}</td>
+				<td>{{t.contract.moderatorName}}</td>
+				<td>{{t.transcationId}}</td>
+				<td style="display: flex; flex-direction: column;">
+					<a ng-if="t.contract.status!='Cancelled'" ng-hide="t.contract.moderatorName" style="margin-left: 0px;margin-bottom: 10px;" ng-href="/main#/moderators/contract/edit/{{t.chequeIdTemp}}">Edit</a>
+					<input style="margin-bottom: 10px;" type="button" ng-if="t.status=='Approved'" ng-hide="t.contract.moderatorName" ng-click="approve(t.chequeIdTemp)" value="Approve">
+					<input type="button" ng-if="t.contract.status!='Cancelled'" ng-hide="t.contract.moderatorName" ng-click="terminate(t.chequeIdTemp)" value="Teminate">
+				</td>
+		</tbody>
+	</table></div>
+	</div>
+	<div ng-hide="!notLogined">
+		Please <a style="margin-left: 0px;" href="#/moderators/login">Login</a> first
+	</div>
+</div>

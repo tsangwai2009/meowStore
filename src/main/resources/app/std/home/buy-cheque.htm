@@ -1,0 +1,45 @@
+<div ng-controller="BuyController">
+<div class="card">
+			<div class="card-header">Pay by Cheque</div>
+			<div class="card-body">
+				<div ng-hide="notLogined">
+					<form ng-submit="chequebuy(amount)">
+							<div>
+								<h6>Book name</h6>
+								<p>{{subject}}</p>
+							</div>
+							<div>
+								<h6>Description</h6>
+								<p>{{description}}</p>
+							</div>
+							<div>
+								<h6>Book Price</h6>
+								<p>$ {{price}}</p>
+							</div>
+							<div style="margin-bottom: 10px;">
+								<h6>Cheque Amount</h6>
+								$ <input size="20" maxlength="20" type="text" name="amount" ng-model="amount">
+							</div>
+							<div>
+								<h6>Reminder:</h6>
+								<ul>
+								<li>After submit request, please send the e-cheque and username to book@meow.com ASAP.
+								 Your book will be added to your shelf after we processed.</li>
+								<li>You could void the contract in the pending period. 
+								After the cheque is approved, you are not allow void the contract.</li>
+								<li>If the cheque amount is larger than book price, 
+								the remainer will be reflect to your cash account.</li>
+								</ul>
+							</div>
+							<div ng:if="amount>=price">
+								<button type="submit" class="btn btn-primary">Buy Now</button>
+							</div>
+					</form>
+				</div>
+				<div ng-hide="!notLogined">
+					Please <a style="margin-left: 0px;" href="#/user/login">Login</a> first
+				</div>				
+			</div>
+			<div style="margin-left: 10px;margin-bottom: 10px;">{{buyMsg}}</div>
+</div>
+</div>

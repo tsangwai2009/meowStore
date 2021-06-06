@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.2/weblogic-web-app.xsd">
+	<container-descriptor>
+		<show-archived-real-path-enabled>true</show-archived-real-path-enabled>
+		<prefer-application-packages>
+			<package-name>javax.persistence.*</package-name>
+			<package-name>org.hibernate.*</package-name>
+			<package-name>antlr*</package-name>
+			<package-name>org.mozilla.javascript.*</package-name>
+			<package-name>org.mozilla.classfile.*</package-name>
+			<package-name>org.apache.commons.io.*</package-name>
+			<package-name>org.slf4j.*</package-name>
+			<package-name>javassist.*</package-name>
+			<package-name>org.apache.log4j.*</package-name>
+			<package-name>org.werbjars.*</package-name>
+		</prefer-application-packages>
+	</container-descriptor>
+	<context-root>sample</context-root>
+</weblogic-web-app>

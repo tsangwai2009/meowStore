@@ -1,0 +1,34 @@
+<div ng-controller="ModeratorsController">
+	<div class="card" ng-hide="!notLogined">
+				<div class="card-header">Moderators Login</div>
+				<div class="card-body">
+					<form ng-submit="submit(username,password)">
+						<table style="border-collapse: separate;border-spacing: 10px;">
+							<tr>
+								<td class="margin-top:10">
+									<label>Username:</label>
+								</td>
+								<td>
+									<input type="" name="username" ng-model="username">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="pwd">Password:</label>
+								</td>
+								<td>
+									<input type="password" name="password" ng-model="password">
+								</td>
+							</tr>
+						</table>
+						<div class="footer">
+						<button type="submit" class="btn btn-primary">Login</button>
+						</div>
+					</form>
+					{{message}}
+				</div>
+	</div>
+	<div ng-hide="notLogined">
+		Welcome, you already login. Please click <a style="margin: 0px;" href="#/moderators"> moderators center</a>
+	</div>
+</div>

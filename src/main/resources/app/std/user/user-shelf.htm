@@ -1,0 +1,46 @@
+<head>
+	<style>
+		th {margin: 20px;}
+	</style>
+</head>
+<div ng-controller="ShelfController">
+	<div ng-hide="notLogined">	
+	<h2>Bought book</h2>
+	<div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom:10px">
+	<form class="form-inline">
+        <div class="form-group">
+            <label  style="margin-right: 20px;">Search keyword</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    </div>
+	<table class = "table">
+		<thead>
+			<tr>
+				<th>Book name</th>
+				<th>Description</th>
+				<th>ISBN</th>
+				<th>Author</th>
+				<th>Publisher</th>
+				<th>Price</th>
+				<th>Detail</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in data|filter:search">
+				<td>{{t.book.subject}}</td>
+				<td>{{t.book.description}}</td>
+				<td>{{t.book.isbn}}</td>
+				<td>{{t.book.author.name}}</td>
+				<td>{{t.book.publisher.name}}</td>
+				<td>$ {{t.book.price}}</td>
+				<td>
+					<a style="margin-left: 0px;" ng-href="/main#/user/shelf/detail/{{t.book.bookId}}">View</a>
+				</td>
+		</tbody>
+	</table>
+	</div>
+	<div ng-hide="!notLogined">
+		Please <a style="margin-left: 0px;" href="#/user/login">Login</a> first
+	</div>
+</div>

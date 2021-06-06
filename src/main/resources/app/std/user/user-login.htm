@@ -1,0 +1,36 @@
+<div ng-controller="UserController">
+<div class="card"  ng-hide="!notLogined">
+			<div class="card-header">User Login</div>
+			<div class="card-body">
+				<form ng-submit="submit(username,password)">
+					<table style="border-collapse: separate;border-spacing: 10px;">
+						<tr>
+							
+							<td class="margin-top:10">
+								<label>Username:</label>
+							</td>
+							<td>
+								<input type="text" name="username" ng-model="username">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="pwd">Password:</label>
+							</td>
+							<td>
+								<input type="password" name="password" ng-model="password">
+							</td>
+						</tr>
+					</table>
+					<div class="footer" style="display: flex; flex-direction: row;">
+					<button type="submit" class="btn btn-primary">Login</button>
+					<div style="margin: 5px; margin-left: 20px;">No account? Click <a style="margin: 0px;" href="#/user/reg">here</a> for sign up!</div>
+					</div>
+				</form>
+				<div style="margin-top: 10px;">{{message}}</div>
+			</div>
+</div>
+<div ng-hide="notLogined">
+	Welcome, you already login. Please click <a style="margin: 0px;" href="#/user">user center</a> 
+</div>
+</div>

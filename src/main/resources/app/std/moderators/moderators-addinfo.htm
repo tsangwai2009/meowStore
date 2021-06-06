@@ -1,0 +1,45 @@
+<div ng-controller="AddInfoController">
+<div class="card">
+			<div class="card-header">Other Information</div>
+			<div class="card-body">
+				<h6>Add Author</h6>
+				<form ng-submit="addAuthor(Aname,Aemail,Acountry)">
+					<table style="border-collapse: separate;border-spacing: 10px;">
+						<tr>
+							<td class="margin-top:10">
+								<label>Author Name:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="40" type="text" name="Aname" ng-model="Aname">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label for="pwd">Email:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="40" type="text" name="Aemail" ng-model="Aemail">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Country:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="20" type="text" name="Acountry" ng-model="Acountry">
+							</td>
+						</tr>
+					
+					
+						
+					</table>
+					<div class="footer">
+					<button type="submit" class="btn btn-primary">Add</button>
+					</div>
+				</form>
+				<div style="margin-top: 10px;">{{addMsg}}</div>
+			</div>
+</div>
+</div>

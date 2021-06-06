@@ -1,0 +1,78 @@
+<div ng-controller="RegController">
+<div class="card">
+			<div class="card-header">User Registration</div>
+			<div class="card-body">
+				<form ng-submit="reg(username,password,name,email,telephone,mobile,address)">
+					<table style="border-collapse: separate;border-spacing: 10px;">
+						<tr>
+							<td class="margin-top:10">
+								<label>Username:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="40" type="text" name="username" ng-model="username">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label for="pwd">Password:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="20" type="password" name="password" ng-model="password">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Name:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="40" type="text" name="name" ng-model="name">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Email</label>
+							</td>
+							<td>
+								<input size="40" maxlength="60" type="text" name="email" ng-model="email">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Telephone</label>
+							</td>
+							<td>
+								<input size="40" maxlength="20" type="text" name="telephone" ng-model="telephone">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Mobile</label>
+							</td>
+							<td>
+								<input size="40" maxlength="20" type="text" name="mobile" ng-model="mobile">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Address</label>
+							</td>
+							<td>
+								<input size="80" maxlength="100" type="text" name="address" ng-model="address">
+							</td>
+						</tr>
+						
+					</table>
+					<div class="footer">
+					<button type="submit" class="btn btn-primary">Register</button>
+					</div>
+				</form>
+				<div style="margin-top: 10px;">{{regMsg}}</div>
+			</div>
+</div>
+</div>

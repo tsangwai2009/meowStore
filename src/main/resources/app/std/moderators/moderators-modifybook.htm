@@ -1,0 +1,99 @@
+<div ng-controller="ModifyController">
+<div class="card">
+			<div class="card-header">Edit Book Information</div>
+			<div class="card-body">
+				<form ng-submit="modify(subject,description,isbn,content,contentType,price,author,publisher,category)">
+					<table style="border-collapse: separate; border-spacing: 10px;">
+						<tr>
+							<td class="margin-top:10">
+								<label>Book Name:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="40" type="text" name="subject" ng-model="subject">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label for="pwd">Description:</label>
+							</td>
+							<td>
+								<textarea rows="2" cols="80" name="description" ng-model="description"></textarea>
+								<!-- <input size="80" maxlength="80" type="text" name="description" ng-model="description">> -->
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>ISBN:</label>
+							</td>
+							<td>
+								<input size="40" maxlength="20" type="text" name="isbn" ng-model="isbn">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Content:</label>
+							</td>
+							<td>
+								<textarea rows="5" cols="80" name="content" ng-model="content"></textarea>
+								<!-- <input size="80" maxlength="1000" type="text" name="content" ng-model="content"> -->
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Content Type:</label>
+							</td>
+							<td>
+							<select ng-model="contentType" ng-options="x for x in typeList"></select>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Price</label>
+							</td>
+							<td>
+								<input size="40" maxlength="20" type="text" name="price" ng-model="price">
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Author</label>
+							</td>
+							<td>
+							<select ng-model="author" ng-options="x.name for x in authorData"></select>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Publisher</label>
+							</td>
+							<td>
+							<select ng-model="publisher" ng-options="x.name for x in publisherData"></select>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<label>Category</label>
+							</td>
+							<td>
+							<select ng-model="category" ng-options="x.name for x in categoryData"></select>
+							</td>
+						</tr>
+					
+						
+					</table>
+					<div class="footer">
+					<button type="submit" class="btn btn-primary">Modify</button>
+					</div>
+				</form>
+				<div style="margin-top: 10px;">{{modifyMsg}}</div>
+			</div>
+</div>
+</div>

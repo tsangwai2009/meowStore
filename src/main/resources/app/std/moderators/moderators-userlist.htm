@@ -1,0 +1,71 @@
+<head>
+	<style>
+		th {margin: 20px;}
+	</style>
+
+</head>
+
+<div ng-controller="UserListController"> 
+
+	<div ng-hide="notLogined">
+	<h3>User management</h3>
+	 <form class="form-inline">
+        <div class="form-group">
+            <label  style="margin-right: 20px;">Search keyword</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+	<table cellspacing=0 class="table table-bordered table-hover table-striped" id=example width=100%>
+		<thead>
+			<tr>
+				<th>User Id</th>
+				<th>User Name</th>
+				<th>Password</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Telephone</th>
+				<th>Mobile</th>
+				<th>Address</th>
+				<th>Status</th>
+				<th>Created date</th>
+				<th>Updated date</th>
+				<th>Approved date</th>
+				<th>Approved by</th>
+				<th>Number of retries</th>
+				<th>Last Login date</th>
+				<th>Activate Account</th>
+				<th>Unblock & Reset Password</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in data|filter:search">
+				<td>{{t.userId}}</td>
+				<td>{{t.username}}</td>
+				<td>{{t.password}}</td>
+				<td>{{t.name}}</td>
+				<td>{{t.email}}</td>
+				<td>{{t.telephone}}</td>
+				<td>{{t.mobile}}</td>
+				<td>{{t.address}}</td>
+				<td>{{t.status}}</td>
+				<td>{{t.createdDate}}</td>
+				<td>{{t.updatedDate}}</td>
+				<td>{{t.approvedDate}}</td>
+				<td>{{t.moderator.username}}</td>
+				<td>{{t.numberOfRetries}}</td>
+				<td>{{t.lastLoginDate}}</td>
+				<td>
+					<input type="button" ng-click="approve(t.username)" ng-hide=t.moderator.username value="Approve">
+				</td>
+				<td>
+					<input type="button" ng-click="reset(t.username)" ng-if="t.status=='blocked'" value="Unblock & Reset">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div ng-hide="!notLogined">
+		Please <a style="margin-left: 0px;" href="#/moderators/login">Login</a> first
+	</div>
+	
+</div>

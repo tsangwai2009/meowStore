@@ -1,0 +1,56 @@
+<div ng-controller="DetailController">
+<div class="card">
+			<div class="card-header">{{subject}}</div>
+			<div class="card-body">
+				<div ng-hide="notLogined">
+					<div ng-hide="notOwn">
+						<div>
+							<h6>Description</h6>
+							<p>{{description}}</p>
+						</div>
+						<div>
+							<h6>ISBN</h6>
+							<p>{{isbn}}</p>
+						</div>
+						<div>
+							<h6>Price</h6>
+							<p>$ {{price}}</p>
+						</div>
+						<div>
+							<h6>Author</h6>
+							<p>{{author.name}}</p>
+						</div>
+						<div>
+							<h6>Publisher</h6>
+							<p>{{publisher.name}}</p>
+						</div>				
+						<div>
+							<h6>Category</h6>
+							<p>{{category.name}}</p>
+						</div>		
+						<div>
+							<h6>Content Type</h6>
+							<p>{{contentType}}</p>
+							
+						</div>	
+						<div>
+							<h6>Content</h6>
+							<div ng-hide="isLink">
+								<p>{{content}}</p>
+							</div>
+							<div ng-hide="!isLink">
+								<a style="margin-left: 0px;" target="_blank" ng-href="{{content}}">Click here</a>
+							</div>
+						</div>	
+					</div>
+					<div ng-hide="!notOwn">
+						<p>You have not buy this book yet. Please purchase to view more.</p>
+					</div>	
+				</div>
+				<div ng-hide="!notLogined">
+					Please <a style="margin-left: 0px;" href="#/user/login">Login</a> first
+				</div>				
+			</div>
+			
+</div>
+</div>

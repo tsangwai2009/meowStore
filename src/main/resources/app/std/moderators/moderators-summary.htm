@@ -1,0 +1,30 @@
+<div ng-controller="SummaryController">
+<div class="card">
+			<div class="card-header">Quarter Summary Report</div>
+			<div class="card-body">
+				<div ng-hide="notLogined">
+					<div ng-hide="notOwn">
+						<div style="margin-bottom:20px;">
+							<h5>{{quarter}}</h5>
+						</div>
+						<div>
+							<h6>Total completed contracts</h6>
+							<p>{{completedContract}}</p>
+						</div>
+						<div>
+							<h6>Total voided contracts </h6>
+							<p>{{voidContract}}</p>
+						</div>
+						<div>
+							<h6>Total cash</h6>
+							<p>$ {{cash}}</p>
+						</div>
+
+					</div>
+				</div>
+				<div ng-hide="!notLogined">
+					Please <a style="margin-left: 0px;" href="#/moderators/login">Login</a> first
+				</div>				
+			</div>	
+</div>
+</div>

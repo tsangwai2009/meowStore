@@ -1,0 +1,54 @@
+package com.fhk.sample.web.controller;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fhk.sample.domain.entity.ModeratorBean;
+import com.fhk.sample.domain.entity.UserBean;
+import com.fhk.sample.service.ModeratorService;
+import com.fhk.sample.web.security.MyUserDetailsService;
+
+@RestController
+@RequestMapping(value = "/rest/moderators")
+
+public class ModeratorController { //Control access
+	@Inject
+	private ModeratorService moderatorService;
+	@Autowired
+	private MyUserDetailsService myUserDetailService;
+	
+	@RequestMapping(value = "login", method = RequestMethod.POST) //moderator login
+	public ModeratorBean findByUser(@RequestParam(value = "username", required = true) final String username, @RequestParam(value = "password", required = true) final String password)
+	{
+		ModeratorBean user = moderatorService.findByUser(username, password);
+		if (user!=null) {
+			UserDetails userDetails = myUserDetailService.loadUserByUsername(user.getUsername());
+			Authentication auth=new UsernamePasswordAuthenticationToken(userDetails,user.getPassword(), userDetails.getAuthorities());
+			SecurityContextHolder.getContext().setAuthentication(auth); 
+		}
+		return user;
+	}
+	
+	@RequestMapping(value="check",method=RequestMethod.GET)
+	public Collection<? extends GrantedAuthority> checkLogin() {
+		return SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+	}
+	
+	
+}

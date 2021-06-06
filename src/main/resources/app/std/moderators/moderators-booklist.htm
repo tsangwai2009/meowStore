@@ -1,0 +1,52 @@
+<head>
+	<style>
+		th {margin: 20px;}
+	</style>
+</head>
+<div ng-controller="BookListController">
+
+	<div ng-hide="notLogined">
+	<h2>Book List</h2>
+	<div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom:10px">
+	<form class="form-inline">
+        <div class="form-group">
+            <label  style="margin-right: 20px;">Search keyword</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <div>
+    <button class="btn btn-primary" style="" onclick="window.location.href='/main#/moderators/booklist/addbook'">Add a book</button>
+    <button class="btn btn-primary" style="" onclick="window.location.href='/main#/moderators/booklist/addinfo'">Add Other Info</button>
+    </div>
+    </div>
+	<table class = "table">
+		<thead>
+			<tr>
+				<th>Book name</th>
+				<th>Description</th>
+				<th>ISBN</th>
+				<th>Author</th>
+				<th>Publisher</th>
+				<th>Price</th>
+				<th>Manage</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in data|filter:search">
+				<td>{{t.subject}}</td>
+				<td>{{t.description}}</td>
+				<td>{{t.isbn}}</td>
+				<td>{{t.author.name}}</td>
+				<td>{{t.publisher.name}}</td>
+				<td>$ {{t.price}}</td>
+				<td>
+					<a style="margin-left: 0px;" ng-href="/main#/moderators/booklist/modify/{{t.bookId}}">Modify</a>
+				</td>
+		</tbody>
+	</table>
+	</div>
+	<div ng-hide="!notLogined">
+		Please <a style="margin-left: 0px;" href="#/moderators/login">Login</a> first
+	</div>
+	
+</div>

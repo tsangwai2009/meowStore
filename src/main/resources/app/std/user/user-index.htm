@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>User Center</title>
+</head>
+<body>
+	<div ng-controller="UserController">
+<div ng-hide="notLogined">
+		<div style="display: flex; flex-direction: row;">
+		<a href="#/user/shelf">Shelf</a>
+		<a href="#/user/record">Transaction record</a>
+	    <form style="margin-left: 30px;" action="/logout" method="post">
+	            <button type="submit">Logout</button>
+	     </form>
+	     </div>
+	 </div>      
+	<div ng-hide="!notLogined">Please <a style="margin-left: 0px;" href="#/user/login">Login</a> first</div>
+	</div>
+</body>
+</html>
